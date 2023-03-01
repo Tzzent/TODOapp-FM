@@ -1,0 +1,46 @@
+@use "./variables" as *;
+
+
+.checkbox-wrapper {
+  position: absolute;
+  opacity: 0;
+
+  & + label {
+    position: relative;
+    padding: 0;
+  }
+
+  & + label:before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    outline: 1px solid $very-light-grayish-blue;
+    cursor: pointer;
+  }
+
+  &:hover + label:before {
+    background-color: $very-light-grayish-blue;
+  }
+
+  //Box checked
+  &:checked + label:before {
+    background: $check-bg;
+  }
+
+  &:checked + label:after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    left: 6px;
+    top: 6px;
+    background-image: url("/assets/images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}

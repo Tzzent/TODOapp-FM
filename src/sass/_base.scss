@@ -1,0 +1,210 @@
+@use "./dark" as *;
+@use "./variables" as *;
+
+//Custom styles
+@import "./checkbox";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  transition: all 0.3s;
+}
+
+body {
+  height: 100vh;
+  font-family: $font-josefin;
+  background-color: $very-light-grayish-blue;
+}
+
+#app {
+  height: 100%;
+}
+
+// ______Hero______
+.hero {
+  width: 100%;
+  object-fit: cover;
+  img {
+    width: 100%;
+  }
+}
+
+// ______Item Inheritance______
+%item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+// ______The hero_________
+.hero {
+  background-image: url("/assets/images/bg-mobile-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+
+  @media screen and (min-width: $foot) {
+    background-image: url("/assets/images/bg-desktop-light.jpg");
+  }
+}
+
+// ______Container TODO______
+.container__todo {
+  display: grid;
+  background-color: transparent;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: -180px 20px auto 20px;
+  max-width: 600px;
+
+  @media screen and (min-width: $foot) {
+    margin: -180px auto auto auto;
+  }
+
+  .head__todo {
+    color: $very-light-gray;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 12px;
+    grid-column: 1 / span 3;
+
+    & img {
+      width: 1.6em;
+      height: 1.6em;
+      cursor: pointer;
+    }
+  }
+
+  & > .child {
+    background-color: $very-light-gray;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 20px;
+    grid-column: 1 / 4;
+    font-size: $font-size-14;
+  }
+
+  .box__input {
+    @extend %item;
+
+    #initial__check {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .todos {
+    padding: 0;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    .todo__list {
+      list-style: none;
+
+      & > li {
+        @extend %item;
+        border-bottom: 1px solid $very-light-grayish-blue;
+        user-select: none;
+        display: flex;
+        justify-content: start;
+
+        p {
+          cursor: grab;
+          width: 100%;
+          word-break: break-all;
+        }
+
+        button {
+          border: none;
+          background-image: url("/assets/images/icon-cross.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          width: 15px;
+          height: 15px;
+          margin-left: 10px;
+          background-color: transparent;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+
+  .options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    grid-area: 5 / 1 / 6 / span 3;
+
+    @media only screen and (min-width: $foot) {
+      margin: 0;
+      border-radius: 0;
+      grid-area: 5 / 2 / 6 / 3;
+    }
+
+    & button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      font-family: $font-josefin;
+    }
+  }
+}
+
+.cant__left {
+  background-color: $very-light-gray;
+  grid-area: 4 / 1 / 5 / 3;
+  margin-bottom: 20px;
+  border-bottom-left-radius: 5px;
+  padding: 18px;
+  color: $dark-grayish-blue;
+
+  @media only screen and (min-width: $foot) {
+    grid-area: 5 / 1 / 6 / 2;
+    margin-bottom: 0px;
+  }
+}
+
+.button__clear {
+  background-color: $very-light-gray;
+  grid-area: 4 / 2 / 5 / 4;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+  padding: 18px;
+  border-bottom-right-radius: 5px;
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: $dark-grayish-blue;
+    cursor: pointer;
+    font-family: $font-josefin;
+  }
+
+  @media only screen and (min-width: $foot) {
+    grid-area: 5/ 3 / 6 / 4;
+    margin-bottom: 0px;
+  }
+}
+
+.dark-mode {
+  @include dark-mode;
+}
