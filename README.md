@@ -16,11 +16,6 @@ Este proyecto es un clasico TODO, que nos permite agregar, eliminar, ordenar los
 ![Desktop 🖥️](https://user-images.githubusercontent.com/86677547/222302048-c49601ab-c396-4e01-9320-1d858d52b9cd.png)
 ![Mobile 📱](https://user-images.githubusercontent.com/86677547/222302062-65c689cd-3fad-4552-afe3-1a42b4f701ca.png)
 
-<div style="text-align:center">
-  <img src="https://user-images.githubusercontent.com/86677547/222302048-c49601ab-c396-4e01-9320-1d858d52b9cd.png">
-  <img src="https://user-images.githubusercontent.com/86677547/222302062-65c689cd-3fad-4552-afe3-1a42b4f701ca.png">
-</div>
-
 
 ## Instalación y uso
 
